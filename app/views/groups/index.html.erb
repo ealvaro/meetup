@@ -6,17 +6,21 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th colspan="3"></th>
+      <th></th>
+      <th colspan="2">Organizer(s)</th>
     </tr>
   </thead>
 
   <tbody>
     <% @groups.each do |group| %>
+      <% organizer = User.find(Role.organizer(group.id)[0]["user_id"]) %></td>
       <tr>
-        <td><%= group.name %></td>
-        <td><%= link_to 'Show', group %></td>
+        <td><%= link_to group.name, group_path(group.id) %></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td colspan="2"><%= organizer.last_name %>,<%= organizer.first_name %></td>
+<!--         <td><%= link_to 'Show', group %></td>
         <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
