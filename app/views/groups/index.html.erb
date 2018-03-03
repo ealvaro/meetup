@@ -15,10 +15,10 @@
       <tr>
           <td><%= link_to group.name, group_path(group.id) %></td>
           <% organizer = group.users.where("roles.name = 'Organizer'") %>
-          <% if organizer %>
+          <% if organizer %><td>
             <% organizer.each do |u| %>
-            <td><%= u.last_name %>,<%= u.first_name %></td>
-            <% end %>
+            <div><%= u.last_name %>,<%= u.first_name %></div>
+            <% end %></td>
           <% else %>
             <td></td>
           <% end %>
