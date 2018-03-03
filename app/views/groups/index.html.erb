@@ -12,13 +12,18 @@
 
   <tbody>
     <% @groups.each do |group| %>
-      <% organizer = User.find(Role.organizer(group.id)[0]["user_id"]) %></td>
       <tr>
-        <td><%= link_to group.name, group_path(group.id) %></td>
-        <td><%= organizer.last_name %>,<%= organizer.first_name %></td>
-<!--         <td><%= link_to 'Show', group %></td>
+          <td><%= link_to group.name, group_path(group.id) %></td>
+          <% organizer = Role.organizer(group.id) %>
+          <% if organizer.count > 0 %>
+            <% organizer = User.find(organizer[0]["user_id"]) %></td>
+            <td><%= organizer.last_name %>,<%= organizer.first_name %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+
         <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
