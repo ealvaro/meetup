@@ -4,17 +4,15 @@
   <strong>Group:</strong>
   <%= @group.name %>
 </p>
-Users:
-<ul class="list-group">
-  <% @group.users.order("last_name DESC").each do |user| %>
-    <li class="list-group-item">
-    	<div class="col">
-    		<%= user.first_name %>, <%= user.last_name %> 
-    	</div>
-    	<div class="col">
-    		( <%= 	user.roles.where(group_id: @group.id, user_id: user.id)[0]["name"] %> )
-    	</div>
-    </li>
-  <% end %>
-</ul>
+<strong>Users:</strong>
+<table class="table table-striped mt-5">
+	<tbody>
+	  <% @group.users.order("last_name DESC").each do |user| %>
+		<tr>
+	    <td><%= user.first_name %>, <%= user.last_name %></td>
+		<td>( <%= user.roles.where(group_id: @group.id, user_id: user.id)[0]["name"] %> )</td>
+	</tr>
+	  <% end %>
+	</tbody>
+</table>
 <%= link_to 'Back', groups_path %>
