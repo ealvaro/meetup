@@ -7,6 +7,11 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
+  def import
+    Group.import(params[:file])
+    redirect_to root_url, notice: "Group data imported!"
+  end
+
   # GET /groups/1
   # GET /groups/1.json
   def show

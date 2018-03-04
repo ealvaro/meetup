@@ -33,3 +33,8 @@
 <br>
 
 <%= link_to 'New Group', new_group_path %>
+<h4>Import Groups</h4>
+<%= form_tag import_groups_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import CSV" %>
+<% end %>

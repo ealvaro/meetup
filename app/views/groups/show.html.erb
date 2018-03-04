@@ -6,13 +6,13 @@
 </p>
 Users:
 <ul class="list-group">
-  <% @group.users.each do |user| %>
+  <% @group.users.order("last_name DESC").each do |user| %>
     <li class="list-group-item">
     	<div class="col">
     		<%= user.first_name %>, <%= user.last_name %> 
     	</div>
     	<div class="col">
-    		( <%= user.roles.where(group_id: @group.id, user_id: user.id)[0]["name"] %> )
+    		( <%= 	user.roles.where(group_id: @group.id, user_id: user.id)[0]["name"] %> )
     	</div>
     </li>
   <% end %>
