@@ -1,6 +1,6 @@
 class Group < ApplicationRecord
 	require 'csv'
-
+	validates :name, presence: true
 	has_many :roles
 	has_many :users, through: :roles
 
