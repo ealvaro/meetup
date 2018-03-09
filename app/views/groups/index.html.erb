@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Groups</h1>
 
 <table class="table table-striped mt-5">
@@ -32,7 +30,7 @@
 
 <br>
 
-<%= link_to 'New Group', new_group_path %>
+<br/>
 <h4>Import Groups</h4>
 <%= form_tag import_groups_path, multipart: true do %>
   <%= file_field_tag :file %>

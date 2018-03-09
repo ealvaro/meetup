@@ -1,9 +1,10 @@
 first_name,last_name,group_name,role
-Drew,Ulmer,Javascript,Organizer
-Michael,Beams,Javascript,Presenter
-Nick,Zielinski,Javascript,Participant
-Alvaro,Escobar,Javascript,Participant
-Drew,Ulmer,Ruby on Rails,Presenter
-Michael,Beams,Ruby on Rails,Organizer
-Nick,Zielinski,Ruby on Rails,Participant
-Alvaro,Escobar,Ruby on Rails,Participant
+Drew,Ulmer,AngularJS,Organizer
+Michael,Beams,AngularJS,Presenter
+Nick,Zielinski,AngularJS,Participant
+Alvaro,Escobar,AngularJS,Participant
+Drew,Ulmer,Python,Presenter
+Michael,Beams,Python,Organizer
+Katie,Fornes,Python,Organizer
+Nick,Zielinski,Python,Participant
+Alvaro,Escobar,Python,Participant
