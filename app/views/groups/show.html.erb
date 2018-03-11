@@ -9,7 +9,7 @@
 	<tbody>
 	  <% @group.users.order("last_name DESC").each do |user| %>
 		<tr>
-	    <td><%= user.first_name %>, <%= user.last_name %></td>
+	    <td><%= user.first_name %> <%= user.last_name %></td>
 		<td>( <%= user.roles.where(group_id: @group.id, user_id: user.id)[0]["name"] %> )</td>
 	</tr>
 	  <% end %>

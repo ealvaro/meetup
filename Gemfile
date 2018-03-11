@@ -48,6 +48,8 @@ end
 
 group :test do
   gem "capybara"
+  gem 'capybara-screenshot'
+  gem 'capybara-webkit'
   gem "selenium-webdriver"
 end
 

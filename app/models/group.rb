@@ -9,7 +9,7 @@ class Group < ApplicationRecord
 			# byebug
 			hsh = row.to_hash
 			transaction do
-				u = User.find_by(last_name: hsh["last_name"])
+				u = User.find_by(last_name: hsh["last_name"])  #TODO find by full name
 				if u.nil?
 					u = User.new(first_name: hsh["first_name"], last_name: hsh["last_name"])
 					u.save!

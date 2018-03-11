@@ -9,6 +9,8 @@ RSpec.describe "groups/new", type: :view do
     render
 
     assert_select "form[action=?][method=?]", groups_path, "post" do
+		expect(rendered).to match /New Group/
+		expect(rendered).to match /Create Group/
     end
   end
 end
