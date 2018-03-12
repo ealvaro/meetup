@@ -12,10 +12,10 @@
     <% @groups.each do |group| %>
       <tr>
           <td><%= link_to group.name, group_path(group.id) %></td>
-          <% organizer = group.users.where("roles.name = 'Organizer'") %>
+          <% organizer = group.roles.organizer(group.id) %>
           <% if organizer %><td>
-            <% organizer.each do |u| %>
-            <div><%= u.last_name %>,<%= u.first_name %></div>
+            <% organizer.each do |r| %>
+            <div><%= r.user.last_name %>,<%= r.user.first_name %></div>
             <% end %></td>
           <% else %>
             <td></td>

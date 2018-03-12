@@ -3,6 +3,6 @@ class Role < ApplicationRecord
   belongs_to :group
   
   validates :name, presence: true
-  scope :organizer, ->(groupid) {where("roles.name IN ('Organizer') AND group_id = #{groupid}")}
+  scope :organizer, -> (groupid) { where("name IN ('Organizer') AND group_id = ?", groupid) }
 
 end
