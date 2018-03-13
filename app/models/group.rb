@@ -19,7 +19,10 @@ class Group < ApplicationRecord
 					g = Group.new(name: hsh["group_name"])
 					g.save!
 				end
-				Role.new(name: hsh["role"], user_id: u.id, group_id: g.id).save!
+				r = Role.where("group_id = ? AND user_id = ?", g.id, u.id)
+				if r.count == 0
+					Role.new(name: hsh["role"], user_id: u.id, group_id: g.id).save!
+				end
 			end
 		end
 	end
